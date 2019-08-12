@@ -33,6 +33,12 @@ app.post('/users', (req, res) => {
     })
 })
 
+app.post('/authenticate', (req, res) => {
+    const authData = chatkit.authenticate({ userId: req.query.user_id })
+    res.status(authData.status).send(authData.body)
+})
+
+
 const PORT = 3001;
 
 app.listen(PORT, err => {

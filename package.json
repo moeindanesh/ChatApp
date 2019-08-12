@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@pusher/chatkit": "^0.7.18",
+    "@pusher/chatkit-client": "^1.11.0",
     "@pusher/chatkit-server": "^2.1.0",
     "concurrently": "^4.1.1",
     "cors": "^2.8.5",
