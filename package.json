@@ -4,13 +4,15 @@
   "description": "chat app with nextJs and chatKit",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "concurrently \"node ./server.js\" \"next\"",
     "build": "next build",
     "start": "concurrently \"node ./server.js\" \"next start\""
   },
   "author": "MoeinDanA",
   "license": "ISC",
   "dependencies": {
+    "@pusher/chatkit": "^0.7.18",
+    "@pusher/chatkit-server": "^2.1.0",
     "concurrently": "^4.1.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
