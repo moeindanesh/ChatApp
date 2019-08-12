@@ -42,10 +42,18 @@ class ChatScreen extends React.Component{
             })
             .catch(error => console.log(error))
     }
+
     render(){
         return(
-            <div>
-                <MessageList messages={this.state.messages} />
+            <div style={styles.container}>
+                <div style={styles.chatContainer}>
+                    <aside style={styles.onlineListContainer}>
+                        <h2>Online Users</h2>
+                    </aside>
+                    <section style={styles.chatListContainer}>
+                        <MessageList messages={this.state.messages} style={styles.chatList} />
+                    </section>
+                </div>
             </div>
         );
     }
@@ -53,3 +61,34 @@ class ChatScreen extends React.Component{
 
 
 export default ChatScreen;
+
+const styles = {
+    container: {
+        padding:0,
+        margin:0,
+        height: '100vh',
+        display: 'flex',
+        felxDirection: 'column',
+        fontFamily: 'Montserrat'
+    },
+    chatContainer: {
+        display: 'flex',
+        flex: 1
+    },
+    onlineListContainer: {
+        width: '300px',
+        flex: 'none',
+        padding: 20,
+        backgroundColor: '#2c303b',
+        color: 'white'
+    },
+    chatListContainer: {
+        padding: 20,
+        width: '85%',
+        display: 'flex',
+        felxDirection: 'column'
+    },
+    chatList: {
+
+    }
+}
