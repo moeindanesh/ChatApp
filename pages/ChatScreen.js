@@ -2,6 +2,7 @@ import Chatkit from '@pusher/chatkit-client';
 
 import MessageList from '../components/MessageList';
 import SendMessage from '../components/SendMessage';
+import TypingIndicator from '../components/TypingIndicator';
 
 class ChatScreen extends React.Component{
 
@@ -10,10 +11,12 @@ class ChatScreen extends React.Component{
         this.state = {
             currentUser: {},
             currentRoom: {},
-            messages: []
+            messages: [],
+            usersWhoAreTyping: []
         }
 
         this.sendMessage = this.sendMessage.bind(this);
+        this.sendTypingEvent = this.sendTypingEvent.bind(this);
     }
 
     componentDidMount(){
@@ -37,6 +40,16 @@ class ChatScreen extends React.Component{
                             this.setState({
                                 messages: [...this.state.messages, message]
                             })
+                        },
+                        onUserStartedTyping: user => {
+                            this.setState({
+                                usersWhoAreTyping: [...this.state.usersWhoAreTyping, user.name]
+                            })
+                        },
+                        onUserStoppedTyping: user => {
+                            this.setState({
+                                usersWhoAreTyping: this.state.usersWhoAreTyping.filter( username => username !== user.name)
+                            })
                         }
                     }
                 })
@@ -54,6 +67,12 @@ class ChatScreen extends React.Component{
         })
     }
 
+    sendTypingEvent(){
+        this.state.currentUser
+            .isTypingIn( { roomId: this.state.currentRoom.id})
+            .catch(error => console.log(error));
+    }
+
     render(){
         return(
             <div style={styles.container}>
@@ -63,7 +82,8 @@ class ChatScreen extends React.Component{
                     </aside>
                     <section style={styles.chatListContainer}>
                         <MessageList messages={this.state.messages} style={styles.chatList} />
-                        <SendMessage onSubmit={this.sendMessage} />
+                        <TypingIndicator usersWhoAreTyping={this.state.usersWhoAreTyping} />
+                        <SendMessage onSubmit={this.sendMessage} onChange={this.sendTypingEvent} />
                     </section>
                 </div>
             </div>
