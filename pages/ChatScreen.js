@@ -1,6 +1,7 @@
 import Chatkit from '@pusher/chatkit-client';
 
 import MessageList from '../components/MessageList';
+import SendMessage from '../components/SendMessage';
 
 class ChatScreen extends React.Component{
 
@@ -11,6 +12,8 @@ class ChatScreen extends React.Component{
             currentRoom: {},
             messages: []
         }
+
+        this.sendMessage = this.sendMessage.bind(this);
     }
 
     componentDidMount(){
@@ -25,6 +28,7 @@ class ChatScreen extends React.Component{
         chatManager
             .connect()
             .then(currentUser => {
+                this.setState({ currentUser });
                  return currentUser.subscribeToRoom({
                     roomId: '9c69f0f7-9280-4265-ae01-4cfcb58be202',
                     messageLimit: 100,
@@ -43,6 +47,13 @@ class ChatScreen extends React.Component{
             .catch(error => console.log(error))
     }
 
+    sendMessage(text){
+        this.state.currentUser.sendMessage({
+            text,
+            roomId: this.state.currentRoom.id
+        })
+    }
+
     render(){
         return(
             <div style={styles.container}>
@@ -52,6 +63,7 @@ class ChatScreen extends React.Component{
                     </aside>
                     <section style={styles.chatListContainer}>
                         <MessageList messages={this.state.messages} style={styles.chatList} />
+                        <SendMessage onSubmit={this.sendMessage} />
                     </section>
                 </div>
             </div>
@@ -86,7 +98,7 @@ const styles = {
         padding: 20,
         width: '85%',
         display: 'flex',
-        felxDirection: 'column'
+        flexDirection: 'column'
     },
     chatList: {
 

@@ -22,7 +22,7 @@ class Index extends React.Component{
             },
             body: JSON.stringify({username})
         }).then(response => {
-            console.log(response.status); //201 => created  200 => exists
+            // console.log(response.status); //201 => created  200 => exists
             this.setState({
                 currentUsername: username,
                 currentScreen: 'chatScreen'

@@ -22,7 +22,7 @@ export default MessageList;
 const styles = {
     container: {
         overflowY: 'scroll',
-        flex: 1
+        flex: 2
     },
     ul: {
         listStyle: 'none'
