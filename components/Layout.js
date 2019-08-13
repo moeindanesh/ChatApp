@@ -3,7 +3,7 @@ const Layout = props => {
     return(
         <div>
             <Head>
-                <meta charset="utf-8" key='meta_utf8' />
+                <meta charSet="utf-8" key='meta_utf8' />
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" key="meta_viewport" />
                 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
                 <link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css"></link>
