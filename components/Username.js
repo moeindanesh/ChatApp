@@ -25,24 +25,11 @@ class UsernameForm extends React.Component{
     render(){
         return(
             <div>
-<<<<<<< HEAD
-                <div className="limiter">
-                    <div className="container-login100">
-                        <div className="wrap-login100">
-                            <div className="login100-pic js-tilt" data-tilt>
-=======
-                {/* <h1>Ciao Chat App</h1>
-                <form onSubmit={this.onSubmit} style={styles.form}>
-                    <div>
-                        <input type="text" placeholder="enter your username" onChange={this.usernameHandler} />
-                    </div>
-                        <input type="submit" />
-                </form> */}
+
                 <div class="limiter">
                     <div class="container-login100">
                         <div class="wrap-login100">
                             <div class="login100-pic js-tilt" data-tilt>
->>>>>>> parent of ac125c6... Layout and Username components updated
                                 <img src="/static/images/img-01.png" alt="IMG" />
                             </div>
 
