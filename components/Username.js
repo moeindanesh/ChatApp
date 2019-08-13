@@ -25,13 +25,67 @@ class UsernameForm extends React.Component{
     render(){
         return(
             <div>
-                <form onSubmit={this.onSubmit}>
-                    <input type="text" placeholder="enter your username" onChange={this.usernameHandler} />
-                    <input type="submit" />
-                </form>
+                {/* <h1>Ciao Chat App</h1>
+                <form onSubmit={this.onSubmit} style={styles.form}>
+                    <div>
+                        <input type="text" placeholder="enter your username" onChange={this.usernameHandler} />
+                    </div>
+                        <input type="submit" />
+                </form> */}
+                <div class="limiter">
+                    <div class="container-login100">
+                        <div class="wrap-login100">
+                            <div class="login100-pic js-tilt" data-tilt>
+                                <img src="/static/images/img-01.png" alt="IMG" />
+                            </div>
+
+                            <form class="login100-form validate-form" onSubmit={this.onSubmit}>
+                                <span class="login100-form-title">
+                                    Ciao Chat
+                                </span>
+
+                                <div class="wrap-input100">
+                                    <input class="input100" type="text" placeholder="Enter Your Name" onChange={this.usernameHandler} />
+                                    <span class="focus-input100"></span>
+                                    <span class="symbol-input100">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                
+                                <div class="container-login100-form-btn">
+                                    <input type="submit" class="login100-form-btn" value="login"/>
+                                </div>
+
+                                <div class="text-center p-t-12">
+                                    
+                                    <a class="txt2" href="#">
+                                    </a>
+                                </div>
+
+                                <div class="text-center p-t-136">
+                                    <a class="txt2" href="#">
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+	            </div>
             </div>
         );
     }
 }
 
 export default UsernameForm;
+
+const styles = {
+    container:{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        fontFamily: 'Montserrat',
+    },
+    form: {
+
+    }
+}

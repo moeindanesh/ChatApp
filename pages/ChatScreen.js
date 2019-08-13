@@ -33,8 +33,16 @@ class ChatScreen extends React.Component{
             .connect()
             .then(currentUser => {
                 this.setState({ currentUser });
+                // currentUser.getJoinableRooms()
+                //     .then(rooms => {
+                //         console.log(currentUser);
+                //         console.log(rooms);
+                //     })
+                //     .catch(error => {
+                //         console.log(error);
+                //     })
                  return currentUser.subscribeToRoom({
-                    roomId: '9c69f0f7-9280-4265-ae01-4cfcb58be202',
+                    roomId: '81e6917c-48b0-45bc-8f24-4d408a50dbf4',
                     messageLimit: 100,
                     hooks: {
                         onMessage: message => {
@@ -57,7 +65,8 @@ class ChatScreen extends React.Component{
                 })
             })
             .then(currentRoom => {
-                this.setState({ currentRoom })
+                this.setState({ currentRoom });
+                console.log(currentRoom);
             })
             .catch(error => console.log(error))
     }
@@ -82,6 +91,9 @@ class ChatScreen extends React.Component{
                     <aside style={styles.onlineListContainer}>
                         <h2>Online Users</h2>
                         <OnlineList currentUser={this.state.currentUser} users={this.state.currentRoom.users} />
+
+                        {/* <h2>Rooms</h2>
+                        #{this.state.currentRoom.name} */}
                     </aside>
                     <section style={styles.chatListContainer}>
                         <MessageList messages={this.state.messages} style={styles.chatList} />
