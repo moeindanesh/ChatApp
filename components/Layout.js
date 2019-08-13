@@ -6,7 +6,6 @@ const Layout = props => {
                 <meta charSet="utf-8" key='meta_utf8' />
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" key="meta_viewport" />
                 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
-                <link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css"></link>
                 <link rel="stylesheet" type="text/css" href="/static/vendor/animate/animate.css"></link>
                 <link rel="stylesheet" type="text/css" href="/static/vendor/css-hamburgers/hamburgers.min.css"></link>
                 <link rel="stylesheet" type="text/css" href="/static/vendor/select2/select2.min.css"></link>

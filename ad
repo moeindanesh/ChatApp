@@ -1,0 +1,77 @@
+[33mcommit 5ac4fb1f0e46e4309d8d737072e33223d4c9e5dd[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: MoeinDanA <moein.danesh97@gmail.com>
+Date:   Tue Aug 13 21:26:01 2019 +0430
+
+    bootstrap: static=>package
+
+[33mcommit ac125c64c390cddbe4b5a595455c8964974cf363[m
+Author: MoeinDanA <moein.danesh97@gmail.com>
+Date:   Tue Aug 13 21:19:05 2019 +0430
+
+    Layout and Username components updated
+
+[33mcommit b3e3a782717dc2a7e3b923e0c343edf9c72e60b3[m
+Author: MoeinDanA <moein.danesh97@gmail.com>
+Date:   Tue Aug 13 15:04:57 2019 +0430
+
+    Login Page Style | Chat Rooms init
+
+[33mcommit e3fe68d3be780cd4184cfa30a3f92bcf767d1012[m
+Author: MoeinDanA <moein.danesh97@gmail.com>
+Date:   Mon Aug 12 16:56:26 2019 +0430
+
+    onlineUsers component added
+
+[33mcommit ad07814c6bc1c32f126e1d4570417668d6712367[m
+Author: MoeinDanA <moein.danesh97@gmail.com>
+Date:   Mon Aug 12 16:22:37 2019 +0430
+
+    isTypingIndicator added
+
+[33mcommit 2f707f0f2b1a14a45d03917bc276966f017b0bba[m
+Author: MoeinDanA <moein.danesh97@gmail.com>
+Date:   Mon Aug 12 16:00:13 2019 +0430
+
+    sendMessage component + styles | chatScreen update
+
+[33mcommit cd58fe59f80cb43ad81ebfa59fb104c6aecb7d83[m
+Author: MoeinDanA <moein.danesh97@gmail.com>
+Date:   Mon Aug 12 12:31:11 2019 +0430
+
+    font added | messageList style + chatScreen Style
+
+[33mcommit a205778b03f756f37c750d803f4e915a2a46a533[m
+Author: MoeinDanA <moein.danesh97@gmail.com>
+Date:   Mon Aug 12 11:51:01 2019 +0430
+
+    message list component + chatList Update
+
+[33mcommit 76c61bb5eb3c38b612e87f312f8aca07858b4bea[m
+Author: MoeinDanA <moein.danesh97@gmail.com>
+Date:   Mon Aug 12 11:24:34 2019 +0430
+
+    user authenticator added
+
+[33mcommit 1f31ce7fdd5c5e67daa52cf8291500354c562331[m
+Author: MoeinDanA <moein.danesh97@gmail.com>
+Date:   Mon Aug 12 10:38:44 2019 +0430
+
+    usernameScreen created + server
+
+[33mcommit 2285aba4c85e4511027e7cbb146c29d5b5343116[m
+Author: MoeinDanA <moein.danesh97@gmail.com>
+Date:   Sun Aug 11 18:41:13 2019 +0430
+
+    init index and Layout
+
+[33mcommit 2d579139fa5045cea9749700e7621de4c17e4f3d[m
+Author: MoeinDanA <moein.danesh97@gmail.com>
+Date:   Sun Aug 11 18:40:26 2019 +0430
+
+    init index and layout
+
+[33mcommit 38619e615b1418beafc7a25beaaa4149d3487f5c[m
+Author: MoeinDanA <moein.danesh97@gmail.com>
+Date:   Sun Aug 11 18:26:46 2019 +0430
+
+    init files + Server.js
