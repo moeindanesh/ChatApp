@@ -4,6 +4,7 @@ import MessageList from '../components/MessageList';
 import SendMessage from '../components/SendMessage';
 import TypingIndicator from '../components/TypingIndicator';
 import OnlineList from '../components/onlineList';
+import RoomList from '../components/RoomList';
 
 class ChatScreen extends React.Component{
 
@@ -13,14 +14,18 @@ class ChatScreen extends React.Component{
             currentUser: {},
             currentRoom: {},
             messages: [],
-            usersWhoAreTyping: []
+            usersWhoAreTyping: [],
+            joinableRooms: [],
+            joinedRooms: []
         }
 
         this.sendMessage = this.sendMessage.bind(this);
         this.sendTypingEvent = this.sendTypingEvent.bind(this);
+        this.roomHandler = this.roomHandler.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
     }
 
-    componentDidMount(){
+    chatProcess(roomId){
         const chatManager = new Chatkit.ChatManager({
             instanceLocator: 'v1:us1:a6018a7d-1e5b-4ce3-a3dc-44381bbde559',
             userId: this.props.username,
@@ -33,16 +38,20 @@ class ChatScreen extends React.Component{
             .connect()
             .then(currentUser => {
                 this.setState({ currentUser });
-                // currentUser.getJoinableRooms()
-                //     .then(rooms => {
-                //         console.log(currentUser);
-                //         console.log(rooms);
-                //     })
-                //     .catch(error => {
-                //         console.log(error);
-                //     })
+                currentUser.getJoinableRooms()
+                    .then(joinableRooms => {
+                        console.log(joinableRooms);
+                        console.log(currentUser)
+                        this.setState({
+                            joinableRooms,
+                            joinedRooms: currentUser.rooms
+                        })
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
                  return currentUser.subscribeToRoom({
-                    roomId: '81e6917c-48b0-45bc-8f24-4d408a50dbf4',
+                    roomId: roomId,
                     messageLimit: 100,
                     hooks: {
                         onMessage: message => {
@@ -66,9 +75,20 @@ class ChatScreen extends React.Component{
             })
             .then(currentRoom => {
                 this.setState({ currentRoom });
-                console.log(currentRoom);
+                // console.log(currentRoom);
             })
             .catch(error => console.log(error))
+    }
+
+    componentDidMount(){
+        this.chatProcess('81e6917c-48b0-45bc-8f24-4d408a50dbf4');
+    }
+
+    roomHandler(roomId){
+        this.setState({
+            messages: []
+        })
+        this.chatProcess(roomId);
     }
 
     sendMessage(text){
@@ -89,11 +109,10 @@ class ChatScreen extends React.Component{
             <div style={styles.container}>
                 <div style={styles.chatContainer}>
                     <aside style={styles.onlineListContainer}>
+                        <h2>Rooms</h2>
+                        <RoomList rooms={[...this.state.joinedRooms, ...this.state.joinableRooms]} currentRoom={this.state.currentRoom} roomHandler={newRoom => this.roomHandler(newRoom)}/>
                         <h2>Online Users</h2>
                         <OnlineList currentUser={this.state.currentUser} users={this.state.currentRoom.users} />
-
-                        {/* <h2>Rooms</h2>
-                        #{this.state.currentRoom.name} */}
                     </aside>
                     <section style={styles.chatListContainer}>
                         <MessageList messages={this.state.messages} currentUser={this.state.currentUser} style={styles.chatList} />
