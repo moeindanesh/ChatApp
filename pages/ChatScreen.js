@@ -96,7 +96,7 @@ class ChatScreen extends React.Component{
                         #{this.state.currentRoom.name} */}
                     </aside>
                     <section style={styles.chatListContainer}>
-                        <MessageList messages={this.state.messages} style={styles.chatList} />
+                        <MessageList messages={this.state.messages} currentUser={this.state.currentUser} style={styles.chatList} />
                         <TypingIndicator usersWhoAreTyping={this.state.usersWhoAreTyping} />
                         <SendMessage onSubmit={this.sendMessage} onChange={this.sendTypingEvent} />
                     </section>
@@ -123,10 +123,10 @@ const styles = {
         flex: 1
     },
     onlineListContainer: {
-        width: '300px',
+        width: '250px',
         flex: 'none',
         padding: 20,
-        backgroundColor: '#2c303b',
+        backgroundColor: '#4158d0',
         color: 'white'
     },
     chatListContainer: {

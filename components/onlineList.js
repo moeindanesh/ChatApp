@@ -25,7 +25,7 @@ class OnlineList extends React.Component{
         if(this.props.users){
             return this.renderUsers()
         }else{
-            return <p>Loading...</p>
+            return <p style={{color: '#fff'}}>Loading...</p>
         }
     }
 }
@@ -36,7 +36,7 @@ class OnlineListItem extends React.Component{
     render(){
         return(
             <li style={styles.li}>
-                <div style={{...styles.div, backgroundColor: this.props.presenceState === 'online' ? '#539eff' : '#414756'}} />
+                <div style={{...styles.div, backgroundColor: this.props.presenceState === 'online' ? '#00E676' : '#FFEA00'}} />
                 {this.props.children}
             </li>
         )
@@ -56,6 +56,7 @@ const styles = {
         borderRadius: '50%',
         width: 11,
         height: 11,
-        marginRight: 10
+        marginRight: 10,
+        marginLeft:20,
     }
 }
