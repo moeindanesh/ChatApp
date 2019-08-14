@@ -1,3 +1,7 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+
+
 class UsernameForm extends React.Component{
 
     constructor(props){
@@ -42,7 +46,7 @@ class UsernameForm extends React.Component{
                                     <input class="input100" type="text" placeholder="Enter Your Name" onChange={this.usernameHandler} />
                                     <span class="focus-input100"></span>
                                     <span class="symbol-input100">
-                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        <FontAwesomeIcon icon={faUser} />
                                     </span>
                                 </div>
                                 
