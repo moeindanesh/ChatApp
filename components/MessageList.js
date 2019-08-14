@@ -1,9 +1,17 @@
+import ReactDOM from 'react-dom';
 class MessageList extends React.Component{
 
     constructor(props){
         super(props);
     }
+
+    componentDidUpdate(){
+
+        const node = ReactDOM.findDOMNode(this);
+        node.scrollTop = node.scrollHeight;
+    }
     render(){
+        
         return(
             <div style={{...this.props.style, ...styles.container}}>
                 <ul style={styles.ul}>
@@ -18,6 +26,7 @@ class MessageList extends React.Component{
                         </li>
                     ))}
                 </ul>
+                {/* <div style={{...styles.newMessage, display: this.state.newMessageDisp}}>new message</div> */}
             </div>
         )
     }
@@ -59,5 +68,16 @@ const styles = {
         borderRadius: 10,
         background: '#4158d0',
         color: '#fff'
+    },
+    newMessage: {
+        fontSize: 15,
+        padding: '5px 20px',
+        borderRadius: 10,
+        background: '#AA00FF',
+        color: '#fff',
+        position: 'absolute',
+        bottom: 100,
+        right: 70,
+        zIndex: 9999,
     }
 }
