@@ -2,13 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const Chatkit = require('@pusher/chatkit-server');
+const config = require('./config');
 
 const app = express();
 
 
 const chatkit = new Chatkit.default({
-    instanceLocator: 'v1:us1:a6018a7d-1e5b-4ce3-a3dc-44381bbde559',
-    key: 'd37eaa26-b8cb-43fb-831e-e9c466d7b852:SQyM+ncPnh3BcZLd+IBUuNVNpdDYb6AYGQ5YhohKaWs='
+    instanceLocator: config.INSTANCE_LOCATOR,
+    key: config.KEY
 })
 
 

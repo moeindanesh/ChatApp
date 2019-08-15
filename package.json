@@ -1,5 +1,5 @@
 {
-  "name": "chat",
+  "name": "ciaochat",
   "version": "1.0.0",
   "description": "chat app with nextJs and chatKit",
   "main": "index.js",
@@ -11,21 +11,14 @@
   "author": "MoeinDanA",
   "license": "ISC",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.21",
-    "@fortawesome/free-brands-svg-icons": "^5.10.1",
-    "@fortawesome/free-solid-svg-icons": "^5.10.1",
-    "@fortawesome/react-fontawesome": "^0.1.4",
     "@pusher/chatkit": "^0.7.18",
     "@pusher/chatkit-client": "^1.11.0",
     "@pusher/chatkit-server": "^2.1.0",
-    "bootstrap": "^4.3.1",
     "concurrently": "^4.1.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "font-awesome": "^4.7.0",
     "next": "^9.0.3",
     "react": "^16.9.0",
-    "react-bootstrap": "^1.0.0-beta.11",
     "react-dom": "^16.9.0"
   }
 }

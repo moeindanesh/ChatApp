@@ -17,7 +17,7 @@ class RoomList extends React.Component{
         )
     }
     render(){
-        console.log(this.props.rooms)
+        // console.log(this.props.rooms)
         if(this.props.rooms){
             return this.renderRooms()
         }else{

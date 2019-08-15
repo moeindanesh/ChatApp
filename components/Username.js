@@ -1,7 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons'
-
-
 class UsernameForm extends React.Component{
 
     constructor(props){
@@ -30,38 +26,38 @@ class UsernameForm extends React.Component{
         return(
             <div>
 
-                <div class="limiter">
-                    <div class="container-login100">
-                        <div class="wrap-login100">
-                            <div class="login100-pic js-tilt" data-tilt>
+                <div className="limiter">
+                    <div className="container-login100">
+                        <div className="wrap-login100">
+                            <div className="login100-pic js-tilt" data-tilt>
                                 <img src="/static/images/img-01.png" alt="IMG" />
                             </div>
 
-                            <form class="login100-form validate-form" onSubmit={this.onSubmit}>
-                                <span class="login100-form-title">
+                            <form className="login100-form validate-form" onSubmit={this.onSubmit}>
+                                <span className="login100-form-title">
                                     Ciao Chat
                                 </span>
 
-                                <div class="wrap-input100">
-                                    <input class="input100" type="text" placeholder="Enter Your Name" onChange={this.usernameHandler} />
-                                    <span class="focus-input100"></span>
-                                    <span class="symbol-input100">
-                                        <FontAwesomeIcon icon={faUser} />
+                                <div className="wrap-input100">
+                                    <input className="input100" type="text" placeholder="Enter Your Name" onChange={this.usernameHandler} />
+                                    <span className="focus-input100"></span>
+                                    <span className="symbol-input100">
+                                        <i className="fa fa-user" aria-hidden="true" />
                                     </span>
                                 </div>
                                 
-                                <div class="container-login100-form-btn">
-                                    <input type="submit" class="login100-form-btn" value="login"/>
+                                <div className="container-login100-form-btn">
+                                    <input type="submit" className="login100-form-btn" value="login"/>
                                 </div>
 
-                                <div class="text-center p-t-12">
+                                <div className="text-center p-t-12">
                                     
-                                    <a class="txt2" href="#">
+                                    <a className="txt2" href="#">
                                     </a>
                                 </div>
 
-                                <div class="text-center p-t-136">
-                                    <a class="txt2" href="#">
+                                <div className="text-center p-t-136">
+                                    <a className="txt2" href="#">
                                     </a>
                                 </div>
                             </form>

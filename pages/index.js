@@ -2,6 +2,8 @@ import Layout from '../components/Layout';
 import UsernameForm from '../components/Username';
 import ChatScreen from './ChatScreen';
 
+import config from '../config';
+
 class Index extends React.Component{
 
     constructor(props){
@@ -15,7 +17,7 @@ class Index extends React.Component{
     }
 
     onUsernameSubmitted(username){
-        fetch('http://localhost:3001/users', {
+        fetch(`http://${config.SERVER}:3001/users`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -6,6 +6,8 @@ import TypingIndicator from '../components/TypingIndicator';
 import OnlineList from '../components/onlineList';
 import RoomList from '../components/RoomList';
 
+import config from '../config';
+
 class ChatScreen extends React.Component{
 
     constructor(props){
@@ -27,10 +29,10 @@ class ChatScreen extends React.Component{
 
     chatProcess(roomId){
         const chatManager = new Chatkit.ChatManager({
-            instanceLocator: 'v1:us1:a6018a7d-1e5b-4ce3-a3dc-44381bbde559',
+            instanceLocator: config.INSTANCE_LOCATOR,
             userId: this.props.username,
             tokenProvider: new Chatkit.TokenProvider({
-                url: 'http://localhost:3001/authenticate'
+                url: `http://${config.SERVER}:3001/authenticate`
             })
         })
 
@@ -40,8 +42,6 @@ class ChatScreen extends React.Component{
                 this.setState({ currentUser });
                 currentUser.getJoinableRooms()
                     .then(joinableRooms => {
-                        console.log(joinableRooms);
-                        console.log(currentUser)
                         this.setState({
                             joinableRooms,
                             joinedRooms: currentUser.rooms
@@ -75,13 +75,12 @@ class ChatScreen extends React.Component{
             })
             .then(currentRoom => {
                 this.setState({ currentRoom });
-                // console.log(currentRoom);
             })
             .catch(error => console.log(error))
     }
 
     componentDidMount(){
-        this.chatProcess('81e6917c-48b0-45bc-8f24-4d408a50dbf4');
+        this.chatProcess(config.DEFAULT_ROOM);
     }
 
     roomHandler(roomId){
@@ -108,13 +107,17 @@ class ChatScreen extends React.Component{
         return(
             <div style={styles.container}>
                 <div style={styles.chatContainer}>
-                    <aside style={styles.onlineListContainer}>
-                        <h2>Rooms</h2>
-                        <RoomList rooms={[...this.state.joinedRooms, ...this.state.joinableRooms]} currentRoom={this.state.currentRoom} roomHandler={newRoom => this.roomHandler(newRoom)}/>
-                        <h2>Online Users</h2>
-                        <OnlineList currentUser={this.state.currentUser} users={this.state.currentRoom.users} />
+                        <label for="toggle" id="toggle-label">&#9776;</label>
+                        <input type="checkbox" id="toggle" />
+                    <aside id="side-container">
+                        <div>
+                            <h2>Rooms</h2>
+                            <RoomList rooms={[...this.state.joinedRooms, ...this.state.joinableRooms]} currentRoom={this.state.currentRoom} roomHandler={newRoom => this.roomHandler(newRoom)}/>
+                            <h2>Online Users</h2>
+                            <OnlineList currentUser={this.state.currentUser} users={this.state.currentRoom.users} />
+                        </div>
                     </aside>
-                    <section style={styles.chatListContainer}>
+                    <section id="chatlist-container">
                         <MessageList messages={this.state.messages} currentUser={this.state.currentUser} style={styles.chatList} />
                         <TypingIndicator usersWhoAreTyping={this.state.usersWhoAreTyping} />
                         <SendMessage onSubmit={this.sendMessage} onChange={this.sendTypingEvent} />
@@ -140,21 +143,5 @@ const styles = {
     chatContainer: {
         display: 'flex',
         flex: 1
-    },
-    onlineListContainer: {
-        width: '250px',
-        flex: 'none',
-        padding: 20,
-        backgroundColor: '#4158d0',
-        color: 'white'
-    },
-    chatListContainer: {
-        padding: 20,
-        width: '85%',
-        display: 'flex',
-        flexDirection: 'column'
-    },
-    chatList: {
-
     }
 }
