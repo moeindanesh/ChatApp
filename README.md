@@ -1,7 +1,7 @@
 # Ciao Chat
 [![Star on GitHub][github-star-badge]][github-star]
 
-[github-star-badge]: https://img.shields.io/github/stars/moeindanesh/ChatApp.svg?style=social
+[github-star-badge]: https://img.shields.io/github/stars/moeindanesh/ChatApp?style=social
 [github-star]: https://github.com/moeindanesh/ChatApp/stargazers
 
 
@@ -15,8 +15,19 @@
 - Responsive Design UI
 - Easy Configuration
 
+
+**Login Page**
+
 ![](media/CiaoChat.gif)
+
+
+**Chat Screen**
+
 ![](media/Ciao_chatScreen.jpg)
+
+
+**Chat Screen on Mobile**
+
 ![](media/Ciao_chatScreen_mobile.jpg)
 
 ## Getting Started
