@@ -28,7 +28,7 @@
 
 **Chat Screen on Mobile**
 
-![](media/Ciao_chatScreen_mobile.jpg =300x423)
+![](media/Ciao_chatScreen_mobile.jpg)
 
 ## Getting Started
 
