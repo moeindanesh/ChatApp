@@ -18,11 +18,12 @@ const Layout = props => {
 	            <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
 	            <script src="/static/vendor/select2/select2.min.js"></script>
 	            <script src="/static/vendor/tilt/tilt.jquery.min.js"></script>
-                <script >
-                    $('.js-tilt').tilt({
-                        {scale: 1.1}
+                <script dangerouslySetInnerHTML={{ _html: `
+
+$('.js-tilt').tilt({
+                        scale: 1.1
                     })
-                </script>
+` }} />
 	            <script src="/static/js/main.js"></script>
                 <title key="title">Ciao</title>
             </Head>
