@@ -8,6 +8,7 @@ import RoomList from '../components/RoomList';
 
 import config from '../config';
 
+let chatProcessList;
 class ChatScreen extends React.Component{
 
     constructor(props){
@@ -50,11 +51,12 @@ class ChatScreen extends React.Component{
                     .catch(error => {
                         console.log(error);
                     })
-                 return currentUser.subscribeToRoom({
+                return currentUser.subscribeToRoom({
                     roomId: roomId,
                     messageLimit: 100,
                     hooks: {
                         onMessage: message => {
+                            // console.log(message.text);
                             this.setState({
                                 messages: [...this.state.messages, message]
                             })
@@ -84,10 +86,12 @@ class ChatScreen extends React.Component{
     }
 
     roomHandler(roomId){
-        this.setState({
-            messages: []
-        })
-        this.chatProcess(roomId);
+        if(this.state.currentRoom.id !== roomId){
+            this.setState({
+                messages: []
+            })
+            this.chatProcess(roomId);
+        }
     }
 
     sendMessage(text){
